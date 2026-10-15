@@ -1,6 +1,9 @@
 """
 End-to-End Pipeline CLI Execution Script.
 """
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import argparse
 import os
 import yaml

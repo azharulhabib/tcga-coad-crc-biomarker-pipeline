@@ -70,9 +70,12 @@ def custom_boruta(
     orig_cols = list(df.columns)
     feature_hits = {col: 0 for col in orig_cols}
 
-    # Generate shadow features
-    for col in orig_cols:
-        df[f"shadow_{col}"] = shuffle(df[col].values, random_state=random_state)
+    # Generate shadow features all at once to prevent fragmentation
+    shadow_dict = {
+        f"shadow_{col}": shuffle(df[col].values, random_state=random_state)
+        for col in orig_cols
+    }
+    df = pd.concat([df, pd.DataFrame(shadow_dict, index=df.index)], axis=1)
 
     for trial in tqdm(range(trials), desc="Boruta Feature Selection"):
         for col in orig_cols:

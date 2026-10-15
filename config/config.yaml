@@ -1,5 +1,5 @@
 data:
-  raw_path: "data/raw/TCGA-COAD.star_fpkm.tsv.gz"
+  raw_path: "data/raw/TCGA-COAD.star_fpkm.tsv"
   processed_dir: "data/processed/"
 
 preprocessing:
