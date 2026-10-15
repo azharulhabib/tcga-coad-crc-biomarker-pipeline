@@ -1,0 +1,22 @@
+data:
+  raw_path: "data/raw/TCGA-COAD.star_fpkm.tsv.gz"
+  processed_dir: "data/processed/"
+
+preprocessing:
+  log2_threshold: 50.0
+  expression_threshold: 3.32  # log2(10) counts
+  test_size: 0.3
+  random_state: 42
+
+dea:
+  log2fc_threshold: 1.0
+  padj_threshold: 0.05
+
+boruta:
+  trials: 50
+  confidence: 0.95
+  random_state: 42
+
+output:
+  figures_dir: "results/figures/"
+  tables_dir: "results/tables/"
